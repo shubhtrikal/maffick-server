@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const userRoute = require('./routes/userRoute');
+const userRoute = require('./routes/UserRoute');
 const DB = require('./Db');
 const cors = require('cors');
 // Load env vars
