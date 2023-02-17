@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../models/UserModel')
 
 router.post('/register', async (req, res) => {
-    const { name, email, phoneNumber, college, city } = req.body;
+    // const { name, email, phoneNumber, college, city } = req.body;
     // const isUser = await User.findOne({ email: email })
     // if (isUser) {
     //     return res.status(400).json({
@@ -12,13 +12,7 @@ router.post('/register', async (req, res) => {
     //     })
     // }
 
-    const user = new User({
-        name,
-        email,
-        phoneNumber,
-        college,
-        city
-    });
+    const user = new User(req.body);
     console.log(user)
     await user.save()
         .then(user => {
