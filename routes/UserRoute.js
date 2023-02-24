@@ -12,11 +12,11 @@ router.post('/register', async (req, res) => {
     console.log(user)
     await user.save()
         .then(user => {
+            mailsent(user.email, `Hi ${user.name}, <br> Thank you for registering for Maffick 2023. <br> We will get back to you soon. <br> Regards, <br> Team Maffick 2023`)
             res.status(200).json({
                 success: true,
                 data: user
             })
-            mailsent(user.email, `Hi ${user.name}, <br> Thank you for registering for Maffick 2023. <br> We will get back to you soon. <br> Regards, <br> Team Maffick 2023`)
         })
         .catch(err => {
             res.status(400).json({
